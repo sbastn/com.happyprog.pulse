@@ -17,6 +17,19 @@ public class ChartView extends ViewPart implements PulseView {
 
 	@Override
 	public void showChart() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void updateChartForPassingTests() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void updateChartForFailingTests() {
+		// TODO Auto-generated method stub
 
 	}
 

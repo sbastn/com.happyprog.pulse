@@ -4,4 +4,8 @@ public interface PulseView {
 
 	void showChart();
 
+	void updateChartForPassingTests();
+
+	void updateChartForFailingTests();
+
 }

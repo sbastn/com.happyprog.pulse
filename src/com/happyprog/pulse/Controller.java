@@ -2,7 +2,7 @@ package com.happyprog.pulse;
 
 import com.happyprog.pulse.views.PulseView;
 
-public class Controller implements PlayButtonObserver {
+public class Controller implements PlayButtonObserver, TestObserver {
 
 	private final PulseView view;
 	private final TestSubscriber testSubscriber;
@@ -16,6 +16,16 @@ public class Controller implements PlayButtonObserver {
 	public void onPlayButtonPressed() {
 		view.showChart();
 		testSubscriber.subscribe();
+	}
+
+	@Override
+	public void onPassingTests() {
+		view.updateChartForPassingTests();
+	}
+
+	@Override
+	public void onFailingTests() {
+		view.updateChartForFailingTests();
 	}
 
 }
