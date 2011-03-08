@@ -25,16 +25,10 @@ public class JUnitSubscriber implements TestSubscriber {
 	}
 
 	void addTestRunListener() {
-		JUnitCore.addTestRunListener(new RunListener(observer));
+		JUnitCore.addTestRunListener(new RunListener());
 	}
 
 	class RunListener extends TestRunListener {
-		private final TestObserver observer;
-
-		public RunListener(TestObserver observer) {
-			this.observer = observer;
-		}
-
 		@Override
 		public void sessionFinished(ITestRunSession session) {
 			super.sessionFinished(session);
