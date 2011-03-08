@@ -6,6 +6,8 @@ public interface Chart {
 
 	void updateChartWithFailingTests();
 
+	void updateChartWithPassingTests();
+
 	void initialize(Composite parent);
 
 }
