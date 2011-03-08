@@ -11,7 +11,7 @@ public class JUnitSubscriber implements TestSubscriber {
 	private TestObserver observer;
 
 	@Override
-	public void subscribe(final TestObserver observer) {
+	public void subscribe(TestObserver observer) {
 		this.observer = observer;
 		addTestRunListener();
 	}

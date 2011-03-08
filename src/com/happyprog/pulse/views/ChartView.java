@@ -6,9 +6,15 @@ import org.eclipse.ui.part.ViewPart;
 public class ChartView extends ViewPart implements PulseView {
 
 	public static final String ID = "com.happyprog.pulse.views.ChartView";
+	private final Chart chart;
+
+	public ChartView(Chart chart) {
+		this.chart = chart;
+	}
 
 	@Override
 	public void createPartControl(Composite parent) {
+		chart.initialize(parent);
 	}
 
 	@Override
@@ -22,15 +28,12 @@ public class ChartView extends ViewPart implements PulseView {
 	}
 
 	@Override
-	public void updateChartForPassingTests() {
-		// TODO Auto-generated method stub
-
+	public void onPassingTests() {
+		chart.updateChartWithFailingTests();
 	}
 
 	@Override
-	public void updateChartForFailingTests() {
-		// TODO Auto-generated method stub
-
+	public void onFailingTests() {
+		chart.updateChartWithFailingTests();
 	}
-
 }

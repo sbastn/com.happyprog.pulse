@@ -22,13 +22,13 @@ public class ControllerWhenTestRunsTest {
 	public void whenTestsArePassing_notifiesView() throws Exception {
 		controller.onPassingTests();
 
-		verify(view).updateChartForPassingTests();
+		verify(view).onPassingTests();
 	}
 
 	@Test
 	public void whenTestsAreFailing_notifiesView() throws Exception {
 		controller.onFailingTests();
 
-		verify(view).updateChartForFailingTests();
+		verify(view).onFailingTests();
 	}
 }

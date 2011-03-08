@@ -20,12 +20,12 @@ public class Controller implements PlayButtonObserver, TestObserver {
 
 	@Override
 	public void onPassingTests() {
-		view.updateChartForPassingTests();
+		view.onPassingTests();
 	}
 
 	@Override
 	public void onFailingTests() {
-		view.updateChartForFailingTests();
+		view.onFailingTests();
 	}
 
 }
