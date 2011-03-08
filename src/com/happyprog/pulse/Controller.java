@@ -15,7 +15,7 @@ public class Controller implements PlayButtonObserver, TestObserver {
 	@Override
 	public void onPlayButtonPressed() {
 		view.showChart();
-		testSubscriber.subscribe();
+		testSubscriber.subscribe(this);
 	}
 
 	@Override

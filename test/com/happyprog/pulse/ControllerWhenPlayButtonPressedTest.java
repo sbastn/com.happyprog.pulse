@@ -31,6 +31,6 @@ public class ControllerWhenPlayButtonPressedTest {
 	public void subscribeToTestRuns() throws Exception {
 		controller.onPlayButtonPressed();
 
-		verify(testSubscriber).subscribe();
+		verify(testSubscriber).subscribe(controller);
 	}
 }
