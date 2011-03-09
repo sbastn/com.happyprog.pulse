@@ -3,22 +3,24 @@ package com.happyprog.pulse.views;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
+import com.happyprog.pulse.PulseController;
+
 public class ChartView extends ViewPart {
 
 	public static final String ID = "com.happyprog.pulse.views.ChartView";
-	private final Chart chart;
+	private final Controller controller;
 
 	public ChartView() {
-		this(new LabelChart());
+		this(new PulseController());
 	}
 
-	public ChartView(Chart chart) {
-		this.chart = chart;
+	public ChartView(Controller controller) {
+		this.controller = controller;
 	}
 
 	@Override
 	public void createPartControl(Composite parent) {
-		chart.initialize(parent);
+		controller.initializeView(this, parent);
 	}
 
 	@Override

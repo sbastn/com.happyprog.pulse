@@ -2,7 +2,6 @@ package com.happyprog.pulse;
 
 import static org.mockito.Mockito.*;
 
-import org.eclipse.ui.IViewPart;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,15 +9,13 @@ import com.happyprog.pulse.views.Chart;
 
 public class ControllerWhenTestRunsTest {
 
-	private IViewPart view;
-	private Controller controller;
+	private PulseController controller;
 	private Chart chart;
 
 	@Before
 	public void before() {
-		view = mock(IViewPart.class);
 		chart = mock(Chart.class);
-		controller = new Controller(view, chart, null);
+		controller = new PulseController(chart, null, null);
 	}
 
 	@Test

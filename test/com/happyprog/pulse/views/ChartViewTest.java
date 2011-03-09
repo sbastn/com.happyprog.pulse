@@ -1,11 +1,19 @@
 package com.happyprog.pulse.views;
 
+import static org.mockito.Mockito.*;
+
+import org.eclipse.swt.widgets.Composite;
 import org.junit.Test;
 
 public class ChartViewTest {
 	@Test
-	public void tbd() throws Exception {
-		// this will change as I add the controller to this class. No more
-		// dependency on the chart
+	public void createPartControlInitializesView() throws Exception {
+		Controller controller = mock(Controller.class);
+		Composite parentComposite = mock(Composite.class);
+
+		ChartView view = new ChartView(controller);
+		view.createPartControl(parentComposite);
+
+		verify(controller).initializeView(view, parentComposite);
 	}
 }
