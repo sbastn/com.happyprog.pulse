@@ -1,9 +1,12 @@
-package com.happyprog.pulse;
+package com.happyprog.pulse.controller;
 
 import static org.mockito.Mockito.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.happyprog.pulse.controller.PulseController;
+import com.happyprog.pulse.subscribers.TestSubscriber;
 
 public class ControllerWhenPlayButtonPressedTest {
 

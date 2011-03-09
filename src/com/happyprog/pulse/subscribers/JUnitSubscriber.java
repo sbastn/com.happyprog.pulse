@@ -1,10 +1,11 @@
-package com.happyprog.pulse;
+package com.happyprog.pulse.subscribers;
 
 import org.eclipse.jdt.junit.JUnitCore;
 import org.eclipse.jdt.junit.TestRunListener;
 import org.eclipse.jdt.junit.model.ITestElement;
 import org.eclipse.jdt.junit.model.ITestElement.Result;
 import org.eclipse.jdt.junit.model.ITestRunSession;
+
 
 public class JUnitSubscriber implements TestSubscriber {
 

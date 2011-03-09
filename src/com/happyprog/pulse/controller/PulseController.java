@@ -1,13 +1,16 @@
-package com.happyprog.pulse;
+package com.happyprog.pulse.controller;
 
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
-import com.happyprog.pulse.views.Chart;
-import com.happyprog.pulse.views.Controller;
-import com.happyprog.pulse.views.LabelChart;
-import com.happyprog.pulse.views.PlayButton;
+import com.happyprog.pulse.actions.PlayButton;
+import com.happyprog.pulse.actions.PlayButtonObserver;
+import com.happyprog.pulse.chart.Chart;
+import com.happyprog.pulse.chart.LabelChart;
+import com.happyprog.pulse.subscribers.JUnitSubscriber;
+import com.happyprog.pulse.subscribers.TestObserver;
+import com.happyprog.pulse.subscribers.TestSubscriber;
 
 public class PulseController implements Controller, PlayButtonObserver, TestObserver {
 
@@ -27,7 +30,6 @@ public class PulseController implements Controller, PlayButtonObserver, TestObse
 
 	@Override
 	public void onPlayButtonPressed() {
-		// chart.showChart();
 		testSubscriber.subscribe(this);
 	}
 
@@ -43,7 +45,6 @@ public class PulseController implements Controller, PlayButtonObserver, TestObse
 
 	@Override
 	public void initializeView(ViewPart viewPart, Composite parent) {
-		playButton.subscribe(this);
 		chart.initialize(parent);
 		IToolBarManager toolbarManager = viewPart.getViewSite().getActionBars().getToolBarManager();
 		toolbarManager.add(playButton);

@@ -1,10 +1,11 @@
-package com.happyprog.pulse;
+package com.happyprog.pulse.actions;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.happyprog.pulse.views.PlayButton;
+import com.happyprog.pulse.actions.PlayButton;
+import com.happyprog.pulse.actions.PlayButtonObserver;
 
 public class PlayButtonTest {
 

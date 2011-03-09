@@ -3,7 +3,8 @@ package com.happyprog.pulse.views;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
-import com.happyprog.pulse.PulseController;
+import com.happyprog.pulse.controller.Controller;
+import com.happyprog.pulse.controller.PulseController;
 
 public class ChartView extends ViewPart {
 
@@ -25,6 +26,7 @@ public class ChartView extends ViewPart {
 
 	@Override
 	public void setFocus() {
+		// Required to be here, but we have nothing to focus on...
 	}
 
 }

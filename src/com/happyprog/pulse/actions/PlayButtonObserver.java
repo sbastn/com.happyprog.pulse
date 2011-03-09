@@ -1,4 +1,4 @@
-package com.happyprog.pulse;
+package com.happyprog.pulse.actions;
 
 public interface PlayButtonObserver {
 

@@ -1,4 +1,4 @@
-package com.happyprog.pulse.views;
+package com.happyprog.pulse.chart;
 
 import org.eclipse.swt.widgets.Composite;
 

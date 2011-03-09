@@ -1,4 +1,5 @@
-package com.happyprog.pulse;
+package com.happyprog.pulse.subscribers;
+
 
 public interface TestSubscriber {
 

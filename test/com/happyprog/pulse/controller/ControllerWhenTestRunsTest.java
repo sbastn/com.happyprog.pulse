@@ -1,11 +1,12 @@
-package com.happyprog.pulse;
+package com.happyprog.pulse.controller;
 
 import static org.mockito.Mockito.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.happyprog.pulse.views.Chart;
+import com.happyprog.pulse.chart.Chart;
+import com.happyprog.pulse.controller.PulseController;
 
 public class ControllerWhenTestRunsTest {
 

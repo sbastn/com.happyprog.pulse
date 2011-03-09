@@ -1,4 +1,4 @@
-package com.happyprog.pulse.views;
+package com.happyprog.pulse.controller;
 
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;

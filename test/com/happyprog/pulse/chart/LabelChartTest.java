@@ -1,4 +1,4 @@
-package com.happyprog.pulse.views;
+package com.happyprog.pulse.chart;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -6,6 +6,8 @@ import static org.mockito.Mockito.*;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.junit.Test;
+
+import com.happyprog.pulse.chart.LabelChart;
 
 public class LabelChartTest {
 

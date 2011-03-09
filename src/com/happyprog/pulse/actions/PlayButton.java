@@ -1,8 +1,7 @@
-package com.happyprog.pulse.views;
+package com.happyprog.pulse.actions;
 
 import org.eclipse.jface.action.Action;
 
-import com.happyprog.pulse.PlayButtonObserver;
 
 public class PlayButton extends Action {
 
