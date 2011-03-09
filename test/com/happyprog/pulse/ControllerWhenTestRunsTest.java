@@ -2,33 +2,36 @@ package com.happyprog.pulse;
 
 import static org.mockito.Mockito.*;
 
+import org.eclipse.ui.IViewPart;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.happyprog.pulse.views.PulseView;
+import com.happyprog.pulse.views.Chart;
 
 public class ControllerWhenTestRunsTest {
 
-	private PulseView view;
+	private IViewPart view;
 	private Controller controller;
+	private Chart chart;
 
 	@Before
 	public void before() {
-		view = mock(PulseView.class);
-		controller = new Controller(view, null);
+		view = mock(IViewPart.class);
+		chart = mock(Chart.class);
+		controller = new Controller(view, chart, null);
 	}
 
 	@Test
-	public void whenTestsArePassing_notifiesView() throws Exception {
+	public void whenTestsArePassing_notifiesChart() throws Exception {
 		controller.onPassingTests();
 
-		verify(view).onPassingTests();
+		verify(chart).updateChartWithPassingTests();
 	}
 
 	@Test
 	public void whenTestsAreFailing_notifiesView() throws Exception {
 		controller.onFailingTests();
 
-		verify(view).onFailingTests();
+		verify(chart).updateChartWithFailingTests();
 	}
 }
