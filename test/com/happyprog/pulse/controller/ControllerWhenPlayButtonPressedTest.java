@@ -5,25 +5,28 @@ import static org.mockito.Mockito.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.happyprog.pulse.controller.PulseController;
+import com.happyprog.pulse.chart.Chart;
 import com.happyprog.pulse.subscribers.TestSubscriber;
 
 public class ControllerWhenPlayButtonPressedTest {
 
 	private PulseController controller;
 	private TestSubscriber testSubscriber;
+	private Chart chart;
 
 	@Before
 	public void before() {
 		testSubscriber = mock(TestSubscriber.class);
-		controller = new PulseController(null, testSubscriber);
+		chart = mock(Chart.class);
+
+		controller = new PulseController(chart, testSubscriber);
 	}
 
 	@Test
 	public void showChart() throws Exception {
 		controller.onPlayButtonPressed();
-		// TODO: chart needs to appear when play button is pressed
-		// verify(view).showChart();
+
+		verify(chart).start();
 	}
 
 	@Test

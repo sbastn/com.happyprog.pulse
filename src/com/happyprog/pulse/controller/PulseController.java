@@ -29,6 +29,7 @@ public class PulseController implements Controller, PlayButtonObserver, TestObse
 	@Override
 	public void onPlayButtonPressed() {
 		testSubscriber.subscribe(this);
+		chart.start();
 	}
 
 	@Override

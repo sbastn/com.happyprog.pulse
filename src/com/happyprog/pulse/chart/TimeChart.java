@@ -29,26 +29,30 @@ public class TimeChart implements Chart {
 
 	@Override
 	public void updateChartWithFailingTests() {
-		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
-
-			@Override
-			public void run() {
-				serie.add(new Second(), -5);
-			}
-
-		});
+		makeWave(failingTestsTimeSerie, -5);
 	}
 
 	@Override
 	public void updateChartWithPassingTests() {
-		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
+		makeWave(passingTestsTimeSerie, 5);
+	}
 
+	private void makeWave(final TimeSeries shapeSerie, final int dimension) {
+		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
 			@Override
 			public void run() {
-				serie.add(new Second(), 5);
+				Second second = new Second();
+				serie.add(second.previous(), 0);
+				serie.add(second, dimension);
+				shapeSerie.add(second, dimension);
+				serie.add(second.next(), 0);
 			}
-
 		});
+	}
+
+	@Override
+	public void start() {
+		serie.add(new Second(), 0);
 	}
 
 	@Override
@@ -120,4 +124,5 @@ public class TimeChart implements Chart {
 		renderer.setSeriesStroke(0, new BasicStroke(3f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL));
 		renderer.setSeriesShapesVisible(0, false);
 	}
+
 }

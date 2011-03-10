@@ -10,4 +10,6 @@ public interface Chart {
 
 	void initialize(Composite parent);
 
+	void start();
+
 }
