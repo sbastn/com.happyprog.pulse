@@ -7,13 +7,13 @@ import org.junit.Test;
 
 import com.happyprog.pulse.views.IconLoader;
 
-public class PlayButtonTest {
+public class StartActionTest {
 
 	@Test
 	public void whenConstructed_showsStartIcon() throws Exception {
 		IconLoader iconLoader = mock(IconLoader.class);
 
-		new PlayButton(null, iconLoader);
+		new StarAction(null, iconLoader);
 
 		verify(iconLoader).load("icons/start.gif");
 	}
@@ -22,22 +22,18 @@ public class PlayButtonTest {
 	public void whenPressed_observableIsNotified() throws Exception {
 		IconLoader iconLoader = mock(IconLoader.class);
 		SpyObservable observer = new SpyObservable();
-		PlayButton button = new PlayButton(observer, iconLoader);
+		StarAction button = new StarAction(observer, iconLoader);
 
 		button.run();
 
-		assertTrue(observer.wasCalled());
+		assertTrue(observer.buttonWasPressed);
 	}
 
-	class SpyObservable implements PlayButtonObserver {
-		private boolean buttonWasPressed;
-
-		boolean wasCalled() {
-			return buttonWasPressed;
-		}
+	class SpyObservable implements StartActionObserver {
+		boolean buttonWasPressed;
 
 		@Override
-		public void onPlayButtonPressed() {
+		public void onStartAction() {
 			buttonWasPressed = true;
 		}
 	}

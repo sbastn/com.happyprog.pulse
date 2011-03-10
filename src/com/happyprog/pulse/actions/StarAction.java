@@ -4,12 +4,12 @@ import org.eclipse.jface.action.Action;
 
 import com.happyprog.pulse.views.IconLoader;
 
-public class PlayButton extends Action {
+public class StarAction extends Action {
 
-	private PlayButtonObserver observer;
+	private StartActionObserver observer;
 	private final IconLoader iconLoader;
 
-	public PlayButton(PlayButtonObserver observer, IconLoader iconLoader) {
+	public StarAction(StartActionObserver observer, IconLoader iconLoader) {
 		this.observer = observer;
 		this.iconLoader = iconLoader;
 		showIcon();
@@ -18,7 +18,7 @@ public class PlayButton extends Action {
 	@Override
 	public void run() {
 		super.run();
-		observer.onPlayButtonPressed();
+		observer.onStartAction();
 	}
 
 	void showIcon() {

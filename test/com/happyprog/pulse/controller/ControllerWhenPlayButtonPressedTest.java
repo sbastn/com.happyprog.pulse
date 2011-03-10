@@ -24,14 +24,14 @@ public class ControllerWhenPlayButtonPressedTest {
 
 	@Test
 	public void showChart() throws Exception {
-		controller.onPlayButtonPressed();
+		controller.onStartAction();
 
 		verify(chart).start();
 	}
 
 	@Test
 	public void subscribeToTestRuns() throws Exception {
-		controller.onPlayButtonPressed();
+		controller.onStartAction();
 
 		verify(testSubscriber).subscribe(controller);
 	}

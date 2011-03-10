@@ -4,8 +4,8 @@ import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
-import com.happyprog.pulse.actions.PlayButton;
-import com.happyprog.pulse.actions.PlayButtonObserver;
+import com.happyprog.pulse.actions.StarAction;
+import com.happyprog.pulse.actions.StartActionObserver;
 import com.happyprog.pulse.actions.SaveAction;
 import com.happyprog.pulse.actions.SaveActionObserver;
 import com.happyprog.pulse.chart.Chart;
@@ -16,7 +16,7 @@ import com.happyprog.pulse.subscribers.TestSubscriber;
 import com.happyprog.pulse.views.IconLoader;
 import com.happyprog.pulse.views.SimpleIconLoader;
 
-public class PulseController implements Controller, PlayButtonObserver, SaveActionObserver, TestObserver {
+public class PulseController implements Controller, StartActionObserver, SaveActionObserver, TestObserver {
 
 	private final TestSubscriber testSubscriber;
 	private final Chart chart;
@@ -33,7 +33,7 @@ public class PulseController implements Controller, PlayButtonObserver, SaveActi
 	}
 
 	@Override
-	public void onPlayButtonPressed() {
+	public void onStartAction() {
 		testSubscriber.subscribe(this);
 		chart.start();
 	}
@@ -57,7 +57,7 @@ public class PulseController implements Controller, PlayButtonObserver, SaveActi
 	public void initializeView(ViewPart viewPart, Composite parent) {
 		chart.initialize(parent);
 		IToolBarManager toolbarManager = viewPart.getViewSite().getActionBars().getToolBarManager();
-		toolbarManager.add(new PlayButton(this, iconLoader));
+		toolbarManager.add(new StarAction(this, iconLoader));
 		toolbarManager.add(new SaveAction(this, iconLoader));
 	}
 
