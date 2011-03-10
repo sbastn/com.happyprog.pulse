@@ -17,7 +17,7 @@ import com.happyprog.pulse.chart.Chart;
 import com.happyprog.pulse.subscribers.TestSubscriber;
 import com.happyprog.pulse.views.IconLoader;
 
-public class ControllerWhenViewInitializedTest {
+public class ViewControllerTest {
 
 	private Chart chart;
 	private TestSubscriber testSubscriber;
