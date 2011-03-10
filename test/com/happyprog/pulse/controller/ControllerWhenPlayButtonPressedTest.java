@@ -16,7 +16,7 @@ public class ControllerWhenPlayButtonPressedTest {
 	@Before
 	public void before() {
 		testSubscriber = mock(TestSubscriber.class);
-		controller = new PulseController(null, null, testSubscriber);
+		controller = new PulseController(null, testSubscriber);
 	}
 
 	@Test

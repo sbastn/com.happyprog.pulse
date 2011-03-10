@@ -16,7 +16,7 @@ public class ControllerWhenTestRunsTest {
 	@Before
 	public void before() {
 		chart = mock(Chart.class);
-		controller = new PulseController(chart, null, null);
+		controller = new PulseController(chart, null);
 	}
 
 	@Test

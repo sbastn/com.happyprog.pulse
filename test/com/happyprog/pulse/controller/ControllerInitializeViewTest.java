@@ -1,5 +1,6 @@
 package com.happyprog.pulse.controller;
 
+import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.*;
 
 import org.eclipse.jface.action.IToolBarManager;
@@ -12,13 +13,11 @@ import org.junit.Test;
 
 import com.happyprog.pulse.actions.PlayButton;
 import com.happyprog.pulse.chart.Chart;
-import com.happyprog.pulse.controller.PulseController;
 import com.happyprog.pulse.subscribers.TestSubscriber;
 
 public class ControllerInitializeViewTest {
 
 	private Chart chart;
-	private PlayButton playButton;
 	private TestSubscriber testSubscriber;
 	private ViewPart viewPart;
 	private IViewSite viewSite;
@@ -30,7 +29,6 @@ public class ControllerInitializeViewTest {
 	@Before
 	public void before() {
 		chart = mock(Chart.class);
-		playButton = mock(PlayButton.class);
 		testSubscriber = mock(TestSubscriber.class);
 		viewPart = mock(ViewPart.class);
 		viewSite = mock(IViewSite.class);
@@ -38,7 +36,7 @@ public class ControllerInitializeViewTest {
 		toolBarManager = mock(IToolBarManager.class);
 		parentComposite = mock(Composite.class);
 
-		controller = new PulseController(chart, playButton, testSubscriber);
+		controller = new PulseController(chart, testSubscriber);
 
 		when(viewPart.getViewSite()).thenReturn(viewSite);
 		when(viewSite.getActionBars()).thenReturn(actionBars);
@@ -49,7 +47,7 @@ public class ControllerInitializeViewTest {
 	public void addsPlayActionToTheToolbar() throws Exception {
 		controller.initializeView(viewPart, parentComposite);
 
-		verify(toolBarManager).add(playButton);
+		verify(toolBarManager).add(isA(PlayButton.class));
 	}
 
 	@Test

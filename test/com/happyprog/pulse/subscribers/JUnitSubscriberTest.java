@@ -6,9 +6,6 @@ import org.eclipse.jdt.junit.model.ITestElement;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.happyprog.pulse.subscribers.JUnitSubscriber;
-import com.happyprog.pulse.subscribers.TestObserver;
-
 public class JUnitSubscriberTest {
 	private JUnitSubscriber subscriber;
 	private TestObserver observer;

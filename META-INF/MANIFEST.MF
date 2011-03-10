@@ -9,6 +9,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.jdt.junit.core;bundle-version="3.6.1",
  org.eclipse.ltk.core.refactoring;bundle-version="3.5.100",
- org.junit
+ org.junit,
+ com.sbastn.plugin.libs.jfreechart;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
