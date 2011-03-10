@@ -11,18 +11,22 @@ import com.happyprog.pulse.chart.TimeChart;
 import com.happyprog.pulse.subscribers.JUnitSubscriber;
 import com.happyprog.pulse.subscribers.TestObserver;
 import com.happyprog.pulse.subscribers.TestSubscriber;
+import com.happyprog.pulse.views.IconLoader;
+import com.happyprog.pulse.views.SimpleIconLoader;
 
 public class PulseController implements Controller, PlayButtonObserver, TestObserver {
 
 	private final TestSubscriber testSubscriber;
 	private final Chart chart;
+	private final IconLoader iconLoader;
 
 	public PulseController() {
-		this(new TimeChart(), new JUnitSubscriber());
+		this(new TimeChart(), new SimpleIconLoader(), new JUnitSubscriber());
 	}
 
-	public PulseController(Chart chart, TestSubscriber testSubscriber) {
+	public PulseController(Chart chart, IconLoader iconLoader, TestSubscriber testSubscriber) {
 		this.chart = chart;
+		this.iconLoader = iconLoader;
 		this.testSubscriber = testSubscriber;
 	}
 
@@ -46,6 +50,6 @@ public class PulseController implements Controller, PlayButtonObserver, TestObse
 	public void initializeView(ViewPart viewPart, Composite parent) {
 		chart.initialize(parent);
 		IToolBarManager toolbarManager = viewPart.getViewSite().getActionBars().getToolBarManager();
-		toolbarManager.add(new PlayButton(this));
+		toolbarManager.add(new PlayButton(this, iconLoader));
 	}
 }

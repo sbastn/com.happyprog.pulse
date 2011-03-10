@@ -19,7 +19,7 @@ public class ControllerWhenPlayButtonPressedTest {
 		testSubscriber = mock(TestSubscriber.class);
 		chart = mock(Chart.class);
 
-		controller = new PulseController(chart, testSubscriber);
+		controller = new PulseController(chart, null, testSubscriber);
 	}
 
 	@Test

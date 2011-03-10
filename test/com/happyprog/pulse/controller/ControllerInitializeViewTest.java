@@ -14,6 +14,7 @@ import org.junit.Test;
 import com.happyprog.pulse.actions.PlayButton;
 import com.happyprog.pulse.chart.Chart;
 import com.happyprog.pulse.subscribers.TestSubscriber;
+import com.happyprog.pulse.views.IconLoader;
 
 public class ControllerInitializeViewTest {
 
@@ -25,6 +26,7 @@ public class ControllerInitializeViewTest {
 	private IToolBarManager toolBarManager;
 	private Composite parentComposite;
 	private PulseController controller;
+	private IconLoader iconLoader;
 
 	@Before
 	public void before() {
@@ -35,8 +37,9 @@ public class ControllerInitializeViewTest {
 		actionBars = mock(IActionBars.class);
 		toolBarManager = mock(IToolBarManager.class);
 		parentComposite = mock(Composite.class);
+		iconLoader = mock(IconLoader.class);
 
-		controller = new PulseController(chart, testSubscriber);
+		controller = new PulseController(chart, iconLoader, testSubscriber);
 
 		when(viewPart.getViewSite()).thenReturn(viewSite);
 		when(viewSite.getActionBars()).thenReturn(actionBars);
