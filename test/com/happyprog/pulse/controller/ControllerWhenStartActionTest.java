@@ -8,7 +8,7 @@ import org.junit.Test;
 import com.happyprog.pulse.chart.Chart;
 import com.happyprog.pulse.subscribers.TestSubscriber;
 
-public class ControllerWhenPlayButtonPressedTest {
+public class ControllerWhenStartActionTest {
 
 	private PulseController controller;
 	private TestSubscriber testSubscriber;
