@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.happyprog.pulse.actions.PlayButton;
+import com.happyprog.pulse.actions.SaveAction;
 import com.happyprog.pulse.chart.Chart;
 import com.happyprog.pulse.subscribers.TestSubscriber;
 import com.happyprog.pulse.views.IconLoader;
@@ -51,6 +52,13 @@ public class ControllerInitializeViewTest {
 		controller.initializeView(viewPart, parentComposite);
 
 		verify(toolBarManager).add(isA(PlayButton.class));
+	}
+
+	@Test
+	public void addsSaveActionToTheToolbar() throws Exception {
+		controller.initializeView(viewPart, parentComposite);
+
+		verify(toolBarManager).add(isA(SaveAction.class));
 	}
 
 	@Test
