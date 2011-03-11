@@ -40,7 +40,7 @@ public class ViewControllerTest {
 		parentComposite = mock(Composite.class);
 		iconLoader = mock(IconLoader.class);
 
-		controller = new PulseController(chart, iconLoader, testSubscriber);
+		controller = new PulseController(chart, iconLoader, null, testSubscriber);
 
 		when(viewPart.getViewSite()).thenReturn(viewSite);
 		when(viewSite.getActionBars()).thenReturn(actionBars);
