@@ -10,7 +10,7 @@
       </category>
       <view
             name="Pulse View"
-            icon="icons/sample.gif"
+            icon="icons/icon.png"
             category="com.happyprog.pulse"
             class="com.happyprog.pulse.views.ChartView"
             id="com.happyprog.pulse.views.ChartView">

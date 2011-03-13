@@ -28,11 +28,14 @@ public class TimeChart implements Chart {
 
 	private static final int MAX_RANGE_POINT = 10;
 	private static final int MIN_RANGE_POINT = -10;
+
 	private static final int FLAT_POINT = 0;
 	private static final int TESTS_PASS_POINT = 5;
 	private static final int TESTS_FAIL_POINT = -5;
-	private static final int PNG_HEIGHT = 800;
-	private static final int PNG_WIDTH = 400;
+	private static final int REFACTOR_POINT = 3;
+
+	private static final int PNG_HEIGHT = 400;
+	private static final int PNG_WIDTH = 800;
 
 	private static final int MAIN_TIMELINE = 0;
 	private static final int GREEN_TEST_TIMELINE = 1;
@@ -63,12 +66,21 @@ public class TimeChart implements Chart {
 	}
 
 	@Override
+	public void updateChartWithRefactoredCode() {
+		drawPoint(refactorTimeSerie, REFACTOR_POINT);
+	}
+
+	@Override
 	public void save(String file) throws IOException {
 		ChartUtilities.saveChartAsPNG(new File(file), chart, PNG_WIDTH, PNG_HEIGHT);
 	}
 
 	@Override
 	public void start() {
+		serie.clear();
+		passingTestsTimeSerie.clear();
+		failingTestsTimeSerie.clear();
+		refactorTimeSerie.clear();
 		serie.add(new Second(), FLAT_POINT);
 	}
 

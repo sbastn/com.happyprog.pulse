@@ -48,7 +48,7 @@ public class JUnitSubscriberTest {
 	class JUnitSubscriberStub extends JUnitSubscriber {
 		@Override
 		void addTestRunListener() {
-			// not add JUnit core listener on purpose
+			// overriding to avoid calling JUnitCore
 		}
 	}
 }

@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.happyprog.pulse.chart.Chart;
-import com.happyprog.pulse.controller.PulseController;
 
 public class SubscribersControllerTest {
 
@@ -16,7 +15,7 @@ public class SubscribersControllerTest {
 	@Before
 	public void before() {
 		chart = mock(Chart.class);
-		controller = new PulseController(chart, null, null, null);
+		controller = new PulseController(chart, null, null, null, null);
 	}
 
 	@Test
@@ -31,5 +30,12 @@ public class SubscribersControllerTest {
 		controller.onFailingTests();
 
 		verify(chart).updateChartWithFailingTests();
+	}
+
+	@Test
+	public void whenCodeIsRefactored_notifiesView() throws Exception {
+		controller.onCodeRefactor();
+
+		verify(chart).updateChartWithRefactoredCode();
 	}
 }

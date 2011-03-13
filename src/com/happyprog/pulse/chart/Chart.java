@@ -10,6 +10,8 @@ public interface Chart {
 
 	void updateChartWithPassingTests();
 
+	void updateChartWithRefactoredCode();
+
 	void initialize(Composite parent);
 
 	void start();

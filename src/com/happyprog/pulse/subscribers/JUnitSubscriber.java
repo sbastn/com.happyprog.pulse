@@ -6,7 +6,6 @@ import org.eclipse.jdt.junit.model.ITestElement;
 import org.eclipse.jdt.junit.model.ITestElement.Result;
 import org.eclipse.jdt.junit.model.ITestRunSession;
 
-
 public class JUnitSubscriber implements TestSubscriber {
 
 	private TestObserver observer;
@@ -17,16 +16,16 @@ public class JUnitSubscriber implements TestSubscriber {
 		addTestRunListener();
 	}
 
+	void addTestRunListener() {
+		JUnitCore.addTestRunListener(new RunListener());
+	}
+
 	void reportResults(Result result) {
 		if (!result.equals(ITestElement.Result.OK)) {
 			observer.onFailingTests();
 		} else {
 			observer.onPassingTests();
 		}
-	}
-
-	void addTestRunListener() {
-		JUnitCore.addTestRunListener(new RunListener());
 	}
 
 	class RunListener extends TestRunListener {

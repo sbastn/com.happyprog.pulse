@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.happyprog.pulse.chart.Chart;
+import com.happyprog.pulse.subscribers.RefactorSubscriber;
 import com.happyprog.pulse.subscribers.TestSubscriber;
 import com.happyprog.pulse.views.IconLoader;
 import com.happyprog.pulse.views.SaveDialog;
@@ -19,14 +20,16 @@ public class ActionsControllerTest {
 	private TestSubscriber testSubscriber;
 	private Chart chart;
 	private SaveDialog saveDialog;
+	private RefactorSubscriber refactorSubscriber;
 
 	@Before
 	public void before() {
 		testSubscriber = mock(TestSubscriber.class);
+		refactorSubscriber = mock(RefactorSubscriber.class);
 		saveDialog = mock(SaveDialog.class);
 		chart = mock(Chart.class);
 
-		controller = new PulseController(chart, null, saveDialog, testSubscriber);
+		controller = new PulseController(chart, null, saveDialog, testSubscriber, refactorSubscriber);
 	}
 
 	@Test
@@ -41,6 +44,13 @@ public class ActionsControllerTest {
 		controller.onStartAction();
 
 		verify(testSubscriber).subscribe(controller);
+	}
+
+	@Test
+	public void onStartAction_subscribeToRefactorMoves() throws Exception {
+		controller.onStartAction();
+
+		verify(refactorSubscriber).subscribe(controller);
 	}
 
 	@Test
@@ -78,7 +88,7 @@ public class ActionsControllerTest {
 		boolean userWasAlerted;
 
 		public StubbedController(Chart chart, IconLoader iconLoader, SaveDialog saveDialog, TestSubscriber testSubscriber) {
-			super(chart, iconLoader, saveDialog, testSubscriber);
+			super(chart, iconLoader, saveDialog, testSubscriber, null);
 		}
 
 		@Override
