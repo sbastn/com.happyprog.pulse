@@ -11,7 +11,7 @@ import org.eclipse.ui.part.ViewPart;
 
 import com.happyprog.pulse.actions.SaveAction;
 import com.happyprog.pulse.actions.SaveActionObserver;
-import com.happyprog.pulse.actions.StarAction;
+import com.happyprog.pulse.actions.StartAction;
 import com.happyprog.pulse.actions.StartActionObserver;
 import com.happyprog.pulse.chart.Chart;
 import com.happyprog.pulse.chart.TimeChart;
@@ -84,7 +84,7 @@ public class PulseController implements Controller, StartActionObserver, SaveAct
 	public void initializeView(ViewPart viewPart, Composite parent) {
 		chart.initialize(parent);
 		IToolBarManager toolbarManager = viewPart.getViewSite().getActionBars().getToolBarManager();
-		toolbarManager.add(new StarAction(this, iconLoader));
+		toolbarManager.add(new StartAction(this, iconLoader));
 		toolbarManager.add(new SaveAction(this, iconLoader));
 	}
 

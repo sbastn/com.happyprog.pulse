@@ -11,7 +11,7 @@ import org.eclipse.ui.part.ViewPart;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.happyprog.pulse.actions.StarAction;
+import com.happyprog.pulse.actions.StartAction;
 import com.happyprog.pulse.actions.SaveAction;
 import com.happyprog.pulse.chart.Chart;
 import com.happyprog.pulse.subscribers.TestSubscriber;
@@ -51,7 +51,7 @@ public class ViewControllerTest {
 	public void addsPlayActionToTheToolbar() throws Exception {
 		controller.initializeView(viewPart, parentComposite);
 
-		verify(toolBarManager).add(isA(StarAction.class));
+		verify(toolBarManager).add(isA(StartAction.class));
 	}
 
 	@Test

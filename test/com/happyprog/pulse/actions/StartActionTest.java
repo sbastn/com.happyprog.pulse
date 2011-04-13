@@ -13,7 +13,7 @@ public class StartActionTest {
 	public void whenConstructed_showsStartIcon() throws Exception {
 		IconLoader iconLoader = mock(IconLoader.class);
 
-		new StarAction(null, iconLoader);
+		new StartAction(null, iconLoader);
 
 		verify(iconLoader).load("icons/start.gif");
 	}
@@ -22,7 +22,7 @@ public class StartActionTest {
 	public void whenPressed_observableIsNotified() throws Exception {
 		IconLoader iconLoader = mock(IconLoader.class);
 		SpyObservable observer = new SpyObservable();
-		StarAction button = new StarAction(observer, iconLoader);
+		StartAction button = new StartAction(observer, iconLoader);
 
 		button.run();
 
