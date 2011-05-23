@@ -12,6 +12,7 @@ public class SaveAction extends Action {
 	public SaveAction(SaveActionObserver observer, IconLoader iconLoader) {
 		this.observer = observer;
 		this.iconLoader = iconLoader;
+		this.setText("Stop Pulse");
 		showIcon();
 	}
 
